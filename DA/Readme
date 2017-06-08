@@ -1,0 +1,5 @@
+1 環境：.net framework 4.5以上
+2 以 visual studio 執行 SimulateSensor.sln 檔
+3 執行程式
+4 程式每隔 10 秒傳送一筆資料到 node-red，node-red 再 push 資料到 GSCL ，也就是 http://localhost:8080/om2m/gscl/applications/FinalProject/containers/DATA/contentInstances
+5 node-red 的 flow 資料再當前資料夾中的 node-red-setting.json 中
