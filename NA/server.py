@@ -10,13 +10,14 @@ import json
 # Initialize the Flask application
 app = Flask(__name__)
 
+# Setting
 NSCL_IP = 'localhost'
-GSCL_IP = '140.116.82.99'
+GSCL_IP = '<Please Enter GSCL IP Address>'
 APP_NAME = 'FinalProject'
 DATA_NAME = 'DATA'
 NSCL_URL = ''
 GSCL_URL = 'http://{}:8080/om2m/gscl/applications/{}/containers/{}/contentInstances'.format(GSCL_IP, APP_NAME, DATA_NAME)
-NOTIFICATION_URL = 'http://140.116.82.98:5000/monitor'
+NOTIFICATION_URL = 'http://localhost:5000/monitor' # Enter notification URL
 
 sensorData = None
 hmmBol = None
@@ -24,6 +25,7 @@ hmmPos = None
 hmmObj = None
 action = ['Brushing teeth', 'Washing', 'Cooking', 'Toileting', 'Using phone', 'Reading', 'Eating/Drinking', 'Sleeping']
 
+# Subscribe GSCL
 def subscribe():
     url = GSCL_URL + '/subscriptions'
     xml = "<om2m:subscription xmlns:om2m=\"http://uri.etsi.org/m2m\"><om2m:contact>{}</om2m:contact></om2m:subscription>".format(NOTIFICATION_URL)
@@ -35,6 +37,7 @@ def subscribe():
     else:
         print('[Subscribe] Error:', root.find('{http://uri.etsi.org/m2m}statusCode').text)
 
+# Predict Activity
 def predict():
     global sensorData
 
@@ -55,6 +58,7 @@ def predict():
     else:
         return objY[0]
 
+# Notification site
 @app.route('/monitor', methods=['POST'])
 def monitor():
     global sensorData
@@ -85,12 +89,14 @@ def monitor():
         print('[Monitor]', status.text)
     return ''
 
+# Check activity site
 @app.route('/check', methods=['GET'])
 def getData():
     print('[Get Data] Check Data')
     z = predict()
     return action[z]
 
+# Main function
 if __name__ == '__main__':
     warnings.simplefilter("ignore")
     subscribe()

@@ -2,4 +2,5 @@
 2. 執行"pip install flask"
 3. 執行"pip install hmmlearn"
 4. 在本資料夾下執行"python hmmmodel.py"
-4. 在本資料夾下執行"python server.py"
+5. 修改server.py的 GSCL_IP和NOTIFICATION_URL
+6. 在本資料夾下執行"python server.py"

@@ -24,16 +24,7 @@ hmmBol = MultinomialHMM(n_components=8)
 hmmPos = MultinomialHMM(n_components=8)
 hmmObj = MultinomialHMM(n_components=8)
 
-# covars = .5 * np.tile(np.identity(6), (8, 1, 1))
-# covars = np.identity(6)
-# means = np.array([[40,   0,   0,   0,   4,   8],
-                  # [50,   0,   0, 0.2,   4,   9],
-                  # [40,   0,   1, 0.5, 2.5, 4.5],
-                  # [20,   0,   0,   0,   4,   0],
-                  # [30, 0.5, 0.5, 0.2, 0.5,   1],
-                  # [20, 0.5, 0.5,   0, 0.5,   2],
-                  # [30, 0.5, 0.5,   0, 2.5,   5],
-                  # [20, 0.5, 0.5,   0,   1,   0]])
+# Properties
 startprob = np.array([ 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125])
 transmat = np.array([[  0.3,  0.2,  0.1, 0.04, 0.03, 0.03,  0.2,  0.1],
                      [  0.2,  0.3,  0.1, 0.04, 0.03, 0.03,  0.2,  0.1],
@@ -44,7 +35,7 @@ transmat = np.array([[  0.3,  0.2,  0.1, 0.04, 0.03, 0.03,  0.2,  0.1],
                      [  0.3,  0.2,  0.0,  0.1, 0.03, 0.03,  0.3, 0.04],
                      [ 0.25, 0.25,  0.0, 0.25,  0.0,  0.0,  0.0, 0.25]])
 
-
+# Boolean HMM
 emmBol = np.array([[ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
                    [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.9, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
 				   [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.8, 0.0, 0.0, 0.0, 0.2],
@@ -57,9 +48,8 @@ hmmBol.n_features = 16
 hmmBol.startprob_ = startprob
 hmmBol.transmat_ = transmat
 hmmBol.emissionprob_ = emmBol
-# hmmBoolean.means_ = means
-# hmmBoolean.covars_ = covars
 
+# Position HMM
 emmPos = np.array([[ 0.0, 0.0, 0.0, 0.0, 1.0],
                    [ 0.0, 0.0, 0.0, 0.0, 1.0],
                    [ 0.0, 0.0, 0.3, 0.7, 0.0],
@@ -73,6 +63,7 @@ hmmPos.startprob_ = startprob
 hmmPos.transmat_ = transmat
 hmmPos.emissionprob_ = emmPos
 
+# Object HMM
 emmObj = np.array([[ 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.9, 0.0],
                    [ 0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7],
                    [ 0.0, 0.0, 0.0, 0.3, 0.2, 0.2, 0.3, 0.0, 0.0],
@@ -86,6 +77,7 @@ hmmObj.startprob_ = startprob
 hmmObj.transmat_ = transmat
 hmmObj.emissionprob_ = emmObj
 
+# Export models
 joblib.dump(hmmBol, "data/hmmBol.pkl")
 joblib.dump(hmmPos, "data/hmmPos.pkl")
 joblib.dump(hmmObj, "data/hmmObj.pkl")
