@@ -253,10 +253,5 @@ namespace SimulateSensor
         {
             timer_sendData.Start();
         }
-
-        private void button_urlModify_Click(object sender, EventArgs e)
-        {
-            new UrlForm().ShowDialog();
-        }
     }
 }

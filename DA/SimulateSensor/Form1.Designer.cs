@@ -48,7 +48,6 @@
             this.label_state = new System.Windows.Forms.Label();
             this.checkBox_db = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_urlModify = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -234,7 +233,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button_urlModify);
             this.groupBox1.Controls.Add(label1);
             this.groupBox1.Controls.Add(this.label_state);
             this.groupBox1.Controls.Add(this.button_startTimer);
@@ -242,20 +240,10 @@
             this.groupBox1.Controls.Add(this.button_stopTimer);
             this.groupBox1.Location = new System.Drawing.Point(251, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(92, 157);
+            this.groupBox1.Size = new System.Drawing.Size(92, 129);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "config";
-            // 
-            // button_urlModify
-            // 
-            this.button_urlModify.Location = new System.Drawing.Point(8, 120);
-            this.button_urlModify.Name = "button_urlModify";
-            this.button_urlModify.Size = new System.Drawing.Size(75, 23);
-            this.button_urlModify.TabIndex = 24;
-            this.button_urlModify.Text = "Modify URL";
-            this.button_urlModify.UseVisualStyleBackColor = true;
-            this.button_urlModify.Click += new System.EventHandler(this.button_urlModify_Click);
             // 
             // Form1
             // 
@@ -304,7 +292,6 @@
         private System.Windows.Forms.Label label_state;
         private System.Windows.Forms.CheckBox checkBox_db;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button_urlModify;
     }
 }
 

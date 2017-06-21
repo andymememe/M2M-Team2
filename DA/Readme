@@ -3,3 +3,14 @@
 3 執行程式
 4 程式每隔 10 秒傳送一筆資料到 node-red，node-red 再 push 資料到 GSCL ，也就是 http://localhost:8080/om2m/gscl/applications/FinalProject/containers/DATA/contentInstances
 5 node-red 的 flow 資料再當前資料夾中的 node-red-setting.json 中
+6 操作說明：
+	1) 開啟 node-red，並且 import 上述第五點的 node-red 設定檔
+	2) 利用 node-red 來建立 application、container、container instance 等等，然後需要確認 node-red 能夠傳送資料到 gscl 中
+	3) 以 visual studio 執行 SimulateSensor.sln 檔
+	4) 修改 form1 這個 class 中的 url 變數，修改成 node-red 的網址，如果 node-red 中有修改其網路 API 的路徑，需要去 form1 中的 SendData 這個 function 來修改其 URL，也就是這裡
+				->>>>>   client.PostAsync("/SendData", content);
+	5) 執行程式，程式就會自動傳送模擬的資料過去
+	6) 按鈕說明：
+		Send Data -> 按下按鈕的時候會傳送左邊的設定資料，由於沒有做防呆，所以不建議在沒有暫停timer的情況下按，要不然不知道會不會發生問題
+		Stop Timer -> 按下之後會暫停計時器，程式會停止傳送隨機產生的資料
+		Start Timer -> 按下之後會重新開始計時器，開始產生隨機的資料，並且傳送
